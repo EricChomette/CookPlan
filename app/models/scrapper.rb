@@ -9,9 +9,10 @@ class Scraper
     main_url = "#{base_url}recette-de-cuisine/category/les-desserts"
     # The open method take the url, and return and html file
     data_recipes = data_scraper(main_url)
-    recipes = data_recipes.css('.post-thumbnail').css('.post-entry-content')
-    p recipes
-    end
+
+    p recipes_img = data_recipes.css('.post-thumbnail')
+    p recipes_content = data_recipes.css('.post-entry-content')
+  end
 
   def data_scraper(url)
     html = URI.open(url)
