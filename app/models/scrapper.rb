@@ -12,17 +12,23 @@ class Scraper
     # The open method take the url, and return and html file
     data_recipes = data_scraper(main_url)
 
-    # image
+    # image lien
     p "Image de la recette"
-    p recipes_content = data_recipes.css('.post-thumbnail > a > .lazy-load')["src"]
-    # titre
+    recipes_content = data_recipes.css('.post-thumbnail > a img').each do |object|
+      p object.attr('data-src')
+    end
+
     p "Titre des recette"
     p recipes_content = data_recipes.css('.post-entry-content > h3 > a').text
     # category
     p "Catergory de la recette"
     p recipes_content_category = data_recipes.css('.post-entry-content > .entry-meta > .category-link > a').text
-    p "Résumé de la recette"
-    p recipes_content_category = data_recipes.css('.entry-excerpt > p').text
+    #  .each do |line|
+      line.text
+    end
+    # résumé de la recette
+    # p "Résumé de la recette"
+    # p recipes_content_category = data_recipes.css('.entry-excerpt > p').text
 
   end
 
