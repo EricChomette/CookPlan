@@ -17,10 +17,11 @@ class Scraper
     html = URI.open(url)
     doc  = Nokogiri::HTML(html)
   end
+
 end
 
 # class selector image -> post-thumbnail
 # class selector text -> post-entry-content
 
-# scrape = Scraper.new
-# scrape.scrape_recipe_url
+scrape = Scraper.new
+scrape.recipes
