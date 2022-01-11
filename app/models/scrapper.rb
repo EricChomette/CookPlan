@@ -3,6 +3,7 @@ require 'open-uri'
 require 'pry'
 require 'csv'
 
+# Work in progress
 class Scraper
 
   def recipes
