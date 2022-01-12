@@ -3,9 +3,7 @@ require 'open-uri'
 require 'pry'
 require 'csv'
 
-# Work in progress
 class Scraper
-
   def recipes
     base_url = 'https://www.lesrecettesdecuisine.com/'
     main_url = "#{base_url}recette-de-cuisine/category/les-desserts"
