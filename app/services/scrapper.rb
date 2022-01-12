@@ -14,11 +14,6 @@ class Scraper
     array_category = []
     array_resum = []
 
-    # cp = []
-    # data_recipes.css('.post').each do |post|
-    #   cp << post.text
-    # end
-
     p 'NOMS DES RECETTES'
     data_recipes.css('.post .post-entry-content > h3 > a').each do |t|
       array_name << t.text
@@ -48,9 +43,6 @@ class Scraper
     end
     p array_resum.count
 
-    # array_name.each_with_index do |t, index|
-    #   recipe_array << [array_name[index], array_category[index], array_resum[index], array_url_img[index]]
-    # end
 
     p recipe_array
   end
@@ -59,6 +51,7 @@ class Scraper
     html = URI.open(url)
     doc  = Nokogiri::HTML(html)
   end
+
 end
 
 scrape = Scraper.new
@@ -102,3 +95,13 @@ scrape.recipes
     #   end
     # end
     # p array_url_img.count
+
+    # cp = []
+    # data_recipes.css('.post').each do |post|
+    #   cp << post.text
+    # end
+
+
+       # array_name.each_with_index do |t, index|
+    #   recipe_array << [array_name[index], array_category[index], array_resum[index], array_url_img[index]]
+    # end
