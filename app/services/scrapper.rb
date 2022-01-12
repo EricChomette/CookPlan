@@ -30,7 +30,6 @@ class Scraper
     end
     p array_url_img.count
 
-
     p 'CATEGORIES'
     data_recipes.css('.post-entry-content > .entry-meta > .category-link > a').each do |t|
       array_category << t.text if t.text != 'Vos Recettes'
