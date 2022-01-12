@@ -14,21 +14,27 @@ class Scraper
     array_category = []
     array_resum = []
 
+    # cp = []
+    # data_recipes.css('.post').each do |post|
+    #   cp << post.text
+    # end
+
     p 'NOMS DES RECETTES'
     data_recipes.css('.post .post-entry-content > h3 > a').each do |t|
       array_name << t.text
     end
-    p nbr_target = array_name.count
 
     p 'URL DES IMAGES'
     data_recipes.css('.post .post-thumbnail > a img').each do |object|
-      if object.attr('data-src') == nil && data_recipes.css('.post .post-entry-content > h3 > a').exist
-        array_url_img << 0
+      if object.css('.post-thumbnail > a img') == nil
+        array_url_img << "pas d'image"
+        p array_url_img
       else
         array_url_img << object.attr('data-src')
       end
     end
     p array_url_img.count
+
 
     p 'CATEGORIES'
     data_recipes.css('.post-entry-content > .entry-meta > .category-link > a').each do |t|
@@ -85,3 +91,14 @@ scrape.recipes
     #   array_resum << t.text
     # end
     # p array_resum.count
+
+    # p 'URL DES IMAGES'
+    # data_recipes.css('.post .post-thumbnail > a img').each do |object|
+    #   if object.attr('data-src') == nil && data_recipes.css('.post .post-entry-content > h3 > a').exist
+    #     array_url_img << "pas d'image"
+    #     p array_url_img
+    #   else
+    #     array_url_img << object.attr('data-src')
+    #   end
+    # end
+    # p array_url_img.count
